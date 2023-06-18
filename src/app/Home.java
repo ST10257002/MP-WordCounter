@@ -3,6 +3,7 @@ package app;
 
 // ST10257002 (MP)
 
+import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -37,7 +38,7 @@ public class Home {
         Object[][] gridData = {
             {jGridField01, getTotal(argv)},
             {jGridField02, getWords(argv)},
-            {jGridField03, },
+            {jGridField03, getWordsUnique(argv)},
             {jGridField04, },
             {jGridField05, },
             {jGridField06, },
@@ -69,6 +70,24 @@ public class Home {
     
     public static int getWords(String argv) {
         return argv.trim().isEmpty() ? 0 : argv.trim().split("\\s+").length;
+    }
+    
+    public static int getWordsUnique(String argv) {
+        
+        String[] text = argv.split("\\s+");
+        
+        Arrays.sort(text);
+        
+        int count = 0;
+        for (int i = 0; i < text.length; i++) {
+            if (!text[i].trim().isEmpty()) {
+                if (i == 0 || !text[i].equalsIgnoreCase(text[i - 1])) {
+                    count++;
+                }
+            }
+        }
+        
+        return count;
     }
     
     public static int getSpace(String argv) {
