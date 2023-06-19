@@ -43,8 +43,10 @@ public class JHome extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WordCounter (pre-release)");
@@ -133,16 +135,18 @@ public class JHome extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Documentation");
-        jMenu2.add(jMenuItem1);
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setText("Documentation");
+        jMenu2.add(jMenuItem3);
 
-        jMenuItem2.setText("Create bug report");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem4.setText("Contribute");
+        jMenu2.add(jMenuItem4);
+        jMenu2.add(jSeparator1);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem5.setText("Create bug report");
+        jMenu2.add(jMenuItem5);
 
         jBar.add(jMenu2);
 
@@ -207,10 +211,6 @@ public class JHome extends javax.swing.JFrame {
         JSettings.main(null);
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -254,11 +254,13 @@ public class JHome extends javax.swing.JFrame {
     public javax.swing.JMenu jMenu1;
     public javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     public javax.swing.JProgressBar jProgress;
     private javax.swing.JScrollPane jScroll1;
     private javax.swing.JScrollPane jScroll2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JToggleButton jTB;
     public javax.swing.JTable jTable3;
     public javax.swing.JTextArea jTextbox;
