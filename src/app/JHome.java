@@ -137,11 +137,11 @@ public class JHome extends javax.swing.JFrame {
         jMenu3.add(jSeparator2);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("Copy text in field");
+        jMenuItem2.setText("(copy) Textbox");
         jMenu3.add(jMenuItem2);
 
         jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("Copy output");
+        jMenuItem6.setText("(copy) Infolog");
         jMenu3.add(jMenuItem6);
 
         jBar.add(jMenu3);

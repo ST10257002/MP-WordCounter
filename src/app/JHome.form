@@ -38,7 +38,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Alt+S"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Copy text in field"/>
+                <Property name="text" type="java.lang.String" value="(copy) Textbox"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
@@ -46,7 +46,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+S"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Copy output"/>
+                <Property name="text" type="java.lang.String" value="(copy) Infolog"/>
               </Properties>
             </MenuItem>
           </SubComponents>
