@@ -144,21 +144,90 @@ public class Interpret {
     
     public static int getSymbols(String argv) {
         
-        int[] symbols = {46, 44, 63, 33, 60, 91, 40, 123, 47, 62, 93, 41, 125, 92, 58, 59, 34, 39, 95, 43, 45, 61, 38, 37, 42, 94, 36, 35, 64};
+        int[] symbols = getSymbolsDefinition();
         
         int count = 0;
         for (char c : argv.toCharArray()) {
             int v = (int) c;
+            if (Arrays.binarySearch(symbols, v) >= 0) {
+                count++;
+            }
+            /*
             for (int i : symbols) {
                 if (i == v) {
                     count++;
                     break;
                 }
             }
+            */
         }
         
         return count;
         
+    }
+    
+    public static int[] getSymbolsDefinition() {
+        
+        int[] definition = {
+            33,  // !
+            34,  // "
+            35,  // #
+            36,  // $
+            37,  // %
+            38,  // &
+            39,  // '
+            40,  // (
+            41,  // )
+            42,  // *
+            43,  // +
+            44,  // ,
+            45,  // -
+            46,  // .
+            47,  // /
+            58,  // :
+            59,  // ;
+            60,  // <
+            61,  // =
+            62,  // >
+            63,  // ?
+            64,  // @
+            91,  // [
+            92,  // \
+            93,  // ]
+            94,  // ^
+            95,  // _
+            96,  // `
+            123, // {
+            124, // |
+            125, // }
+            126, // ~
+            128, // €
+            133, // …
+            145, // ‘
+            146, // ’
+            147, // “
+            148, // ”
+            149, // •
+            150, // –
+            151, // —
+            153, // ™
+            161, // ¡
+            162, // ¢
+            163, // £
+            164, // ¤
+            165, // ¥
+            166, // ¦
+            167, // §
+            169, // ©
+            174, // ®
+            176, // °
+            177, // ±
+            191, // ¿
+            247, // ÷
+        };
+                
+        return definition;
+                
     }
     
     public static int getLetters(String argv) { // support: ENG
