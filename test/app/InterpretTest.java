@@ -1,7 +1,6 @@
 
 package app;
 
-import app.Interpret;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -11,12 +10,14 @@ public class InterpretTest {
     }
 
     @Test
-    public void testUpdateTable() {
+    public void testUpdateTable() {    
     }
 
     @Test
     public void testUpdateLogFile() {
     }
+    
+    // ---
 
     @Test
     public void testGetTotal() {
@@ -51,11 +52,15 @@ public class InterpretTest {
         
         final String testA = "";
         final String testB = "ABCDEFGHIJ";
-        final String testC = "1x3*4?():A"; // switch for other lang char
+        final String testC = "1x3*4?():A";
+        final String testD = "ÆæⱭɑᴀ";
+        final String testE = "ÅåȂȃÂâα";
 
         assertEquals(0, Interpret.getLettersUpperCase(testA));
         assertEquals(10, Interpret.getLettersUpperCase(testB));
         assertEquals(1, Interpret.getLettersUpperCase(testC));
+        assertEquals(0, Interpret.getLettersUpperCase(testD));
+        assertEquals(0, Interpret.getLettersUpperCase(testE));
         
     }
 
@@ -64,11 +69,15 @@ public class InterpretTest {
         
         final String testA = "";
         final String testB = "abcdefghij";
-        final String testC = "1x3*4?():A"; // switch for other lang char
+        final String testC = "1x3*4?():A";
+        final String testD = "ÆæⱭɑᴀ";
+        final String testE = "ÅåȂȃÂâα";
         
         assertEquals(0, Interpret.getLettersLowerCase(testA));
         assertEquals(10, Interpret.getLettersLowerCase(testB));
         assertEquals(1, Interpret.getLettersLowerCase(testC));
+        assertEquals(0, Interpret.getLettersLowerCase(testD));
+        assertEquals(0, Interpret.getLettersLowerCase(testE));
         
     }
 
