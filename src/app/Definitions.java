@@ -1,12 +1,72 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 package app;
 
 // ST10257002 (MP)
 
 public class Definitions {
-
+    
+    public static int[] defineSymbol() {
+        
+        int[] definition = {
+            33,  // !
+            34,  // "
+            35,  // #
+            36,  // $
+            37,  // %
+            38,  // &
+            39,  // '
+            40,  // (
+            41,  // )
+            42,  // *
+            43,  // +
+            44,  // ,
+            45,  // -
+            46,  // .
+            47,  // /
+            58,  // :
+            59,  // ;
+            60,  // <
+            61,  // =
+            62,  // >
+            63,  // ?
+            64,  // @
+            91,  // [
+            92,  // \
+            93,  // ]
+            94,  // ^
+            95,  // _
+            96,  // `
+            123, // {
+            124, // |
+            125, // }
+            126, // ~
+            128, // €
+            133, // …
+            145, // ‘
+            146, // ’
+            147, // “
+            148, // ”
+            149, // •
+            150, // –
+            151, // —
+            153, // ™
+            161, // ¡
+            162, // ¢
+            163, // £
+            164, // ¤
+            165, // ¥
+            166, // ¦
+            167, // §
+            169, // ©
+            174, // ®
+            176, // °
+            177, // ±
+            191, // ¿
+            247, // ÷
+        };
+                
+        return definition;
+        
+    }
+    
 }
