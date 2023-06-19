@@ -27,7 +27,7 @@ public class Interpret {
     private static final String jGridField15 = inDev;
     private static final String jGridField16 = inDev;
     private static final String jGridField17 = inDev;
-    private static final String jGridField18 = "TIme to read";
+    private static final String jGridField18 = "Time to read";
     private static final String jGridField19 = "Time to speak";
     private static final String jGridField20 = "Time to write";
     
@@ -61,6 +61,32 @@ public class Interpret {
         
         return new DefaultTableModel(gridData, gridHeader);
 
+    }
+    
+    public static String updateLogFile(String argv) {
+        
+        DefaultTableModel table = updateTable(argv, false);
+        StringBuilder builder = new StringBuilder();
+        
+        builder.append("WORDCOUNTER \n (github.com/ST10257002/MP-WordCounter/)");
+        builder.append("\n\n");
+        
+        int countX = table.getRowCount();
+        int countY = table.getColumnCount();
+        for (int row = 0; row < countX; row++) {
+            for (int column = 0; column < countY; column++) {
+                Object value = table.getValueAt(row, column);
+                if (column == 0) {
+                    builder.append(value + ": ");
+                } else {
+                    builder.append(value);
+                }
+            }
+            builder.append("\n");
+        }
+
+        return builder.toString();
+        
     }
     
     // ---

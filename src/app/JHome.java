@@ -8,8 +8,8 @@ package app;
  *
  * @author 1matt
  */
+import java.awt.Toolkit;
 import java.awt.Desktop;
-import java.io.*;
 import java.net.URI;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,48 +31,48 @@ public class JHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScroll1 = new javax.swing.JScrollPane();
-        jTextbox = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jProgress = new javax.swing.JProgressBar();
-        jScroll2 = new javax.swing.JScrollPane();
+        scrollpane1 = new javax.swing.JScrollPane();
+        textbox = new javax.swing.JTextArea();
+        label = new javax.swing.JLabel();
+        progressbar = new javax.swing.JProgressBar();
+        scrollpane2 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jCombo = new javax.swing.JComboBox<>();
-        jTB = new javax.swing.JToggleButton();
-        jBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        combobox = new javax.swing.JComboBox<>();
+        togglebutton = new javax.swing.JToggleButton();
+        menubar = new javax.swing.JMenuBar();
+        category1 = new javax.swing.JMenu();
+        category2 = new javax.swing.JMenu();
+        c2_clear = new javax.swing.JMenuItem();
+        c2_separator1 = new javax.swing.JPopupMenu.Separator();
+        c2_copyText = new javax.swing.JMenuItem();
+        c2_copyInfo = new javax.swing.JMenuItem();
+        category3 = new javax.swing.JMenu();
+        c3_doc = new javax.swing.JMenuItem();
+        c3_con = new javax.swing.JMenuItem();
+        c3_separator1 = new javax.swing.JPopupMenu.Separator();
+        c3_bug = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WordCounter (pre-release)");
 
-        jTextbox.setColumns(20);
-        jTextbox.setLineWrap(true);
-        jTextbox.setRows(5);
-        jTextbox.setTabSize(4);
-        jTextbox.setWrapStyleWord(true);
-        jTextbox.addCaretListener(new javax.swing.event.CaretListener() {
+        textbox.setColumns(20);
+        textbox.setLineWrap(true);
+        textbox.setRows(5);
+        textbox.setTabSize(4);
+        textbox.setWrapStyleWord(true);
+        textbox.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                jTextboxCaretUpdate(evt);
+                textboxCaretUpdate(evt);
             }
         });
-        jScroll1.setViewportView(jTextbox);
+        scrollpane1.setViewportView(textbox);
 
-        jLabel1.setText("Information overview");
+        label.setText("Information overview");
 
-        jProgress.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
-        jProgress.setValue(80);
+        progressbar.setForeground(javax.swing.UIManager.getDefaults().getColor("Actions.Green"));
+        progressbar.setValue(80);
 
-        jScroll2.setBackground(new java.awt.Color(255, 255, 255));
+        scrollpane2.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,62 +110,87 @@ public class JHome extends javax.swing.JFrame {
         jTable3.setShowGrid(true);
         jTable3.setShowHorizontalLines(false);
         jTable3.setShowVerticalLines(false);
-        jScroll2.setViewportView(jTable3);
+        scrollpane2.setViewportView(jTable3);
 
-        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "View: General", "View: Advanced (A-Z)", "View: Advanced (Extras)" }));
+        combobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "View: General", "View: Advanced (A-Z)", "View: Advanced (Extras)" }));
 
-        jTB.setText("Window stays on top");
-        jTB.addMouseListener(new java.awt.event.MouseAdapter() {
+        togglebutton.setText("Window stays on top");
+        togglebutton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTBMouseClicked(evt);
+                togglebuttonMouseClicked(evt);
             }
         });
 
-        jMenu1.setText("Settings");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        category1.setText("Settings");
+        category1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                category1MouseClicked(evt);
             }
         });
-        jBar.add(jMenu1);
+        menubar.add(category1);
 
-        jMenu3.setText("Tools");
+        category2.setText("Tools");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("Clear");
-        jMenu3.add(jMenuItem1);
-        jMenu3.add(jSeparator2);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setText("(copy) Textbox");
-        jMenu3.add(jMenuItem2);
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("(copy) Infolog");
-        jMenu3.add(jMenuItem6);
-
-        jBar.add(jMenu3);
-
-        jMenu2.setText("Help");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+        c2_clear.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        c2_clear.setText("Clear");
+        c2_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2_clearActionPerformed(evt);
             }
         });
+        category2.add(c2_clear);
+        category2.add(c2_separator1);
 
-        jMenuItem3.setText("Documentation");
-        jMenu2.add(jMenuItem3);
+        c2_copyText.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        c2_copyText.setText("(copy) Textbox");
+        c2_copyText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2_copyTextActionPerformed(evt);
+            }
+        });
+        category2.add(c2_copyText);
 
-        jMenuItem4.setText("Contribute");
-        jMenu2.add(jMenuItem4);
-        jMenu2.add(jSeparator1);
+        c2_copyInfo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        c2_copyInfo.setText("(copy) Infolog");
+        c2_copyInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2_copyInfoActionPerformed(evt);
+            }
+        });
+        category2.add(c2_copyInfo);
 
-        jMenuItem5.setText("Create bug report");
-        jMenu2.add(jMenuItem5);
+        menubar.add(category2);
 
-        jBar.add(jMenu2);
+        category3.setText("Help");
 
-        setJMenuBar(jBar);
+        c3_doc.setText("Documentation");
+        c3_doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3_docActionPerformed(evt);
+            }
+        });
+        category3.add(c3_doc);
+
+        c3_con.setText("Contribute");
+        c3_con.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3_conActionPerformed(evt);
+            }
+        });
+        category3.add(c3_con);
+        category3.add(c3_separator1);
+
+        c3_bug.setText("Create bug report");
+        c3_bug.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3_bugActionPerformed(evt);
+            }
+        });
+        category3.add(c3_bug);
+
+        menubar.add(category3);
+
+        setJMenuBar(menubar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,14 +198,14 @@ public class JHome extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
+                .addComponent(scrollpane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jProgress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(jScroll2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                    .addComponent(jCombo, javax.swing.GroupLayout.Alignment.TRAILING, 0, 262, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(togglebutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(progressbar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addComponent(scrollpane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                    .addComponent(combobox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 262, Short.MAX_VALUE)
+                    .addComponent(label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,42 +214,80 @@ public class JHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScroll2, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollpane2, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTB)
+                        .addComponent(togglebutton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jProgress, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScroll1, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE))
+                        .addComponent(progressbar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollpane1, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextboxCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextboxCaretUpdate
-        DefaultTableModel jGrid = Interpret.updateTable(jTextbox.getText(), false);
+    private void textboxCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_textboxCaretUpdate
+        DefaultTableModel jGrid = Interpret.updateTable(textbox.getText(), false);
         jTable3.setModel(jGrid);
-    }//GEN-LAST:event_jTextboxCaretUpdate
+    }//GEN-LAST:event_textboxCaretUpdate
 
-    private void jTBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTBMouseClicked
+    private void togglebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_togglebuttonMouseClicked
         setAlwaysOnTop(!isAlwaysOnTop());
-    }//GEN-LAST:event_jTBMouseClicked
+    }//GEN-LAST:event_togglebuttonMouseClicked
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void category1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_category1MouseClicked
+        JSettings.main(null);
+    }//GEN-LAST:event_category1MouseClicked
+
+    private void c3_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3_docActionPerformed
         try {
             Desktop.getDesktop().browse(new URI("https://github.com/ST10257002/MP-WordCounter/wiki"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_c3_docActionPerformed
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        JSettings.main(null);
-    }//GEN-LAST:event_jMenu1MouseClicked
+    private void c3_conActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3_conActionPerformed
+        try {
+            Desktop.getDesktop().browse(new URI("https://github.com/ST10257002/MP-WordCounter/blob/main/CONTRIBUTE.md"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_c3_conActionPerformed
+
+    private void c3_bugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3_bugActionPerformed
+        try {
+            Desktop.getDesktop().browse(new URI("https://github.com/ST10257002/MP-WordCounter/issues"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_c3_bugActionPerformed
+
+    private void c2_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2_clearActionPerformed
+        textbox.setText("");
+    }//GEN-LAST:event_c2_clearActionPerformed
+
+    private void c2_copyTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2_copyTextActionPerformed
+        Toolkit.getDefaultToolkit()
+                .getSystemClipboard()
+                .setContents(
+                        new java.awt.datatransfer.StringSelection(textbox.getText()),
+                        null
+                );
+    }//GEN-LAST:event_c2_copyTextActionPerformed
+
+    private void c2_copyInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2_copyInfoActionPerformed
+        Toolkit.getDefaultToolkit()
+                .getSystemClipboard()
+                .setContents(
+                        new java.awt.datatransfer.StringSelection(Interpret.updateLogFile(textbox.getText())),
+                        null
+                );
+    }//GEN-LAST:event_c2_copyInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,25 +326,25 @@ public class JHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenuBar jBar;
-    public javax.swing.JComboBox<String> jCombo;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JMenu jMenu1;
-    public javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    public javax.swing.JProgressBar jProgress;
-    private javax.swing.JScrollPane jScroll1;
-    private javax.swing.JScrollPane jScroll2;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JToggleButton jTB;
+    private javax.swing.JMenuItem c2_clear;
+    private javax.swing.JMenuItem c2_copyInfo;
+    private javax.swing.JMenuItem c2_copyText;
+    private javax.swing.JPopupMenu.Separator c2_separator1;
+    private javax.swing.JMenuItem c3_bug;
+    private javax.swing.JMenuItem c3_con;
+    private javax.swing.JMenuItem c3_doc;
+    private javax.swing.JPopupMenu.Separator c3_separator1;
+    public javax.swing.JMenu category1;
+    private javax.swing.JMenu category2;
+    public javax.swing.JMenu category3;
+    public javax.swing.JComboBox<String> combobox;
     public javax.swing.JTable jTable3;
-    public javax.swing.JTextArea jTextbox;
+    public javax.swing.JLabel label;
+    public javax.swing.JMenuBar menubar;
+    public javax.swing.JProgressBar progressbar;
+    private javax.swing.JScrollPane scrollpane1;
+    private javax.swing.JScrollPane scrollpane2;
+    public javax.swing.JTextArea textbox;
+    private javax.swing.JToggleButton togglebutton;
     // End of variables declaration//GEN-END:variables
 }
