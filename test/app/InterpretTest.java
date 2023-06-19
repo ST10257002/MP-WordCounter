@@ -48,10 +48,28 @@ public class InterpretTest {
 
     @Test
     public void testGetLettersUpperCase() {
+        
+        final String testA = "";
+        final String testB = "ABCDEFGHIJ";
+        final String testC = "1x3*4?():A"; // switch for other lang char
+
+        assertEquals(0, Interpret.getLettersUpperCase(testA));
+        assertEquals(10, Interpret.getLettersUpperCase(testB));
+        assertEquals(1, Interpret.getLettersUpperCase(testC));
+        
     }
 
     @Test
     public void testGetLettersLowerCase() {
+        
+        final String testA = "";
+        final String testB = "abcdefghij";
+        final String testC = "1x3*4?():A"; // switch for other lang char
+        
+        assertEquals(0, Interpret.getLettersLowerCase(testA));
+        assertEquals(10, Interpret.getLettersLowerCase(testB));
+        assertEquals(1, Interpret.getLettersLowerCase(testC));
+        
     }
 
     @Test
