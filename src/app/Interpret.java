@@ -40,12 +40,12 @@ public class Interpret {
             {jGridField01, getTotal(argv)},
             {jGridField02, getWords(argv)},
             {jGridField03, getWordsUnique(argv)},
-            {jGridField04, },
+            {jGridField04, getCharacters(argv)},
             {jGridField05, getLetters(argv)},
             {jGridField06, getLettersUpperCase(argv)},
             {jGridField07, getLettersLowerCase(argv)},
             {jGridField08, getDigits(argv)},
-            {jGridField09, },
+            {jGridField09, getSymbols(argv)},
             {jGridField10, getSpace(argv)},
             {jGridField11, },
             {jGridField12, },
@@ -116,12 +116,44 @@ public class Interpret {
         return count;
     }
     
+    public static int getCharacters(String argv) {
+        
+        int count = 0;
+        for (char c : argv.toCharArray()) {
+            if (!Character.isWhitespace(c)) {
+                count++;
+            }
+        }
+        
+        return count;
+        
+    }
+    
     public static int getSpace(String argv) {
         
         int count = 0;
         for (char c : argv.toCharArray()) {
             if (Character.isWhitespace(c)) {
                 count++;
+            }
+        }
+        
+        return count;
+        
+    }
+    
+    public static int getSymbols(String argv) {
+        
+        int[] symbols = {46, 44, 63, 33, 60, 91, 40, 123, 47, 62, 93, 41, 125, 92, 58, 59, 34, 39, 95, 43, 45, 61, 38, 37, 42, 94, 36, 35, 64};
+        
+        int count = 0;
+        for (char c : argv.toCharArray()) {
+            int v = (int) c;
+            for (int i : symbols) {
+                if (i == v) {
+                    count++;
+                    break;
+                }
             }
         }
         
