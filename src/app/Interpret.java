@@ -59,7 +59,7 @@ public class Interpret {
             {jGridField09, getSymbols(argv)},
             {jGridField10, getSpace(argv)},
             {jGridField11, getParagraphs(argv)},
-            {jGridField12, },
+            {jGridField12, getPages(argv)},
             {jGridField13, },
             {jGridField14, },
             {jGridField15, },
@@ -202,6 +202,10 @@ public class Interpret {
         
         return 0;
         
+    }
+    
+    public static int getPages(String argv) {
+        return ((int) Math.floor(getWords(argv) / 250));
     }
 
 }
