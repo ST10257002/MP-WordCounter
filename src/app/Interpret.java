@@ -33,6 +33,17 @@ public class Interpret {
     
     // ---
     
+    public static String calcActionTime(String argv, int speed) {
+        
+        double word = (double) getWords(argv);
+        double time = (double) (word / speed);
+        int minutes = (int) Math.floor(word / 200);
+        int seconds = (int) Math.floor(((time - Math.floor(time)) * 0.60) * 100);
+        
+        return (minutes + "m " + seconds + "s");
+        
+    }
+    
     public static DefaultTableModel updateTable(String argv, boolean advanced) {
 
         Object[] gridHeader = {"Type", "Value"};
@@ -54,9 +65,9 @@ public class Interpret {
             {jGridField15, },
             {jGridField16, },
             {jGridField17, },
-            {jGridField18, (getWords(argv) / 200) + " min"},
-            {jGridField19, (getWords(argv) / 150) + " min"},
-            {jGridField20, (getWords(argv) / 40) + " min"}
+            {jGridField18, calcActionTime(argv, 200)},
+            {jGridField19, calcActionTime(argv, 150)},
+            {jGridField20, calcActionTime(argv, 40)}
         };
         
         return new DefaultTableModel(gridData, gridHeader);
