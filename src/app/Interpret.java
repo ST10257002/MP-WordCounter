@@ -22,11 +22,11 @@ public class Interpret {
     private static final String jGridField10 = "Space";
     private static final String jGridField11 = "Paragraphs";
     private static final String jGridField12 = "Pages";
-    private static final String jGridField13 = inDev;
-    private static final String jGridField14 = inDev;
-    private static final String jGridField15 = inDev;
-    private static final String jGridField16 = inDev;
-    private static final String jGridField17 = inDev;
+    private static final String jGridField13 = "Lines";
+    private static final String jGridField14 = "Sentences";
+    private static final String jGridField15 = "Avg. Word (char)";
+    private static final String jGridField16 = "Sentence Longest";
+    private static final String jGridField17 = "Sentence Shortest";
     private static final String jGridField18 = "Time to read";
     private static final String jGridField19 = "Time to speak";
     private static final String jGridField20 = "Time to write";
@@ -61,7 +61,7 @@ public class Interpret {
             {jGridField11, getParagraphs(argv)},
             {jGridField12, getPages(argv)},
             {jGridField13, },
-            {jGridField14, },
+            {jGridField14, getSentences(argv)},
             {jGridField15, },
             {jGridField16, },
             {jGridField17, },
@@ -206,6 +206,18 @@ public class Interpret {
     
     public static int getPages(String argv) {
         return ((int) Math.floor(getWords(argv) / 250));
+    }
+    
+    public static int getSentences(String argv) {
+        
+        String[] paragraphs = argv.split("[.?!]");
+        
+        if (!argv.isBlank()) {
+            return paragraphs.length;
+        }
+        
+        return 0;
+        
     }
 
 }
