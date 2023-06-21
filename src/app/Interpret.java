@@ -87,11 +87,10 @@ public class Interpret {
         for (int row = 0; row < countX; row++) {
             for (int column = 0; column < countY; column++) {
                 Object value = table.getValueAt(row, column);
+                builder.append(value);
                 if (column == 0) {
-                    builder.append(value + ": ");
-                } else {
-                    builder.append(value);
-                }
+                    builder.append(": ");
+                }   
             }
             builder.append("\n");
         }
