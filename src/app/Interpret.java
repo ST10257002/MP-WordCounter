@@ -20,8 +20,8 @@ public class Interpret {
     private static final String jGridField08 = "Number";
     private static final String jGridField09 = "Symbol";
     private static final String jGridField10 = "Space";
-    private static final String jGridField11 = inDev;
-    private static final String jGridField12 = inDev;
+    private static final String jGridField11 = "Paragraphs";
+    private static final String jGridField12 = "Pages";
     private static final String jGridField13 = inDev;
     private static final String jGridField14 = inDev;
     private static final String jGridField15 = inDev;
@@ -58,7 +58,7 @@ public class Interpret {
             {jGridField08, getDigits(argv)},
             {jGridField09, getSymbols(argv)},
             {jGridField10, getSpace(argv)},
-            {jGridField11, },
+            {jGridField11, getParagraphs(argv)},
             {jGridField12, },
             {jGridField13, },
             {jGridField14, },
@@ -190,6 +190,18 @@ public class Interpret {
     
     public static int getDigits(String argv) { // support: ENG
         return argv.replaceAll("[^0-9]", "").length();
+    }
+    
+    public static int getParagraphs(String argv) {
+        
+        String[] paragraphs = argv.split("\n\n|\r\n\r\n");
+        
+        if (!argv.isBlank()) {
+            return paragraphs.length;
+        }
+        
+        return 0;
+        
     }
 
 }
