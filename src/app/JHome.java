@@ -39,9 +39,9 @@ public class JHome extends javax.swing.JFrame {
         combobox = new javax.swing.JComboBox<>();
         togglebutton = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
-        progressbar = new javax.swing.JProgressBar();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
+        progbar = new javax.swing.JProgressBar();
+        targetCombo = new javax.swing.JComboBox<>();
+        targetGoal = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
         menubar = new javax.swing.JMenuBar();
         category1 = new javax.swing.JMenu();
@@ -126,18 +126,20 @@ public class JHome extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(130, 135, 144)));
 
-        progressbar.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        progressbar.setForeground(new java.awt.Color(0, 120, 215));
-        progressbar.setValue(80);
-        progressbar.setEnabled(false);
-        progressbar.setPreferredSize(new java.awt.Dimension(146, 15));
-        progressbar.setStringPainted(true);
+        progbar.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        progbar.setForeground(new java.awt.Color(0, 120, 215));
+        progbar.setValue(80);
+        progbar.setPreferredSize(new java.awt.Dimension(146, 15));
+        progbar.setStringPainted(true);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Words" }));
-        jComboBox1.setEnabled(false);
+        targetCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Words" }));
+        targetCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                targetComboActionPerformed(evt);
+            }
+        });
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(200, 0, 10000, 50));
-        jSpinner1.setEnabled(false);
+        targetGoal.setModel(new javax.swing.SpinnerNumberModel(200, 0, 10000, 50));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -147,10 +149,10 @@ public class JHome extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(targetCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(progressbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(targetGoal, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(progbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -158,10 +160,10 @@ public class JHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(targetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(targetGoal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(progressbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(progbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -282,6 +284,8 @@ public class JHome extends javax.swing.JFrame {
     private void textboxCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_textboxCaretUpdate
         DefaultTableModel jGrid = Interpret.updateTable(textbox.getText(), false);
         jTable3.setModel(jGrid);
+        progbar.setMaximum((int) targetGoal.getValue()); int a = 0; int b = 0; int c = 0;
+        progbar.setValue(Interpret.getWords(textbox.getText()));
     }//GEN-LAST:event_textboxCaretUpdate
 
     private void togglebuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_togglebuttonMouseClicked
@@ -338,6 +342,10 @@ public class JHome extends javax.swing.JFrame {
                 );
     }//GEN-LAST:event_c2_copyInfoActionPerformed
 
+    private void targetComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_targetComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_targetComboActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -387,16 +395,16 @@ public class JHome extends javax.swing.JFrame {
     private javax.swing.JMenu category2;
     public javax.swing.JMenu category3;
     public javax.swing.JComboBox<String> combobox;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
     public javax.swing.JTable jTable3;
     public javax.swing.JLabel label;
     public javax.swing.JMenuBar menubar;
-    public javax.swing.JProgressBar progressbar;
+    public javax.swing.JProgressBar progbar;
     private javax.swing.JScrollPane scrollpane1;
     private javax.swing.JScrollPane scrollpane2;
+    private javax.swing.JComboBox<String> targetCombo;
+    private javax.swing.JSpinner targetGoal;
     public javax.swing.JTextArea textbox;
     private javax.swing.JToggleButton togglebutton;
     // End of variables declaration//GEN-END:variables

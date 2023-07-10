@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class Interpret {
     
-    private static final String inDev = "n/a";
     private static final String jGridField01 = "Length";
     private static final String jGridField02 = "Word Total";
     private static final String jGridField03 = "Word Unique";
@@ -162,14 +161,6 @@ public class Interpret {
             if (Arrays.binarySearch(symbols, v) >= 0) {
                 count++;
             }
-            /*
-            for (int i : symbols) {
-                if (i == v) {
-                    count++;
-                    break;
-                }
-            }
-            */
         }
         
         return count;
